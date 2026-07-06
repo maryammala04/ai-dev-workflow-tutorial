@@ -82,3 +82,17 @@ def test_compute_total_sales():
 def test_compute_total_orders():
     from data import compute_total_orders
     assert compute_total_orders(_kpi_fixture()) == 3
+
+
+def test_compute_monthly_trend():
+    from data import compute_monthly_trend
+
+    df = pd.DataFrame({
+        "date": pd.to_datetime(["2024-01-05", "2024-01-20", "2024-02-10"]),
+        "total_amount": [100.0, 50.0, 75.0],
+    })
+
+    result = compute_monthly_trend(df)
+
+    assert list(result["total_sales"]) == [150.0, 75.0]
+    assert result["month"].is_monotonic_increasing

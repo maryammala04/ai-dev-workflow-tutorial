@@ -30,3 +30,13 @@ def compute_total_sales(df):
 
 def compute_total_orders(df):
     return len(df)
+
+
+def compute_monthly_trend(df):
+    return (
+        df.set_index("date")
+        .resample("MS")["total_amount"]
+        .sum()
+        .reset_index()
+        .rename(columns={"date": "month", "total_amount": "total_sales"})
+    )

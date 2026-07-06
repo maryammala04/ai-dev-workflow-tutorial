@@ -11,8 +11,6 @@ Each milestone moves through To Do -> In Progress -> Done.
 
 ## To Do
 
-- [ ] **TASK-3: Sales trend chart**
-  - [ ] Line chart of sales over time renders from the data
 - [ ] **TASK-4: Category and region breakdowns**
   - [ ] Bar charts for sales by category and by region, sorted by value
 - [ ] **TASK-5: Test and deploy**
@@ -27,3 +25,5 @@ Each milestone moves through To Do -> In Progress -> Done.
   - [x] Loads `data/sales-data.csv`; handles a missing file cleanly
 - [x] **TASK-2: KPI scorecards**
   - [x] Total Sales and Total Orders shown as formatted metrics
+- [x] **TASK-3: Sales trend chart**
+  - [x] Line chart of sales over time renders from the data
