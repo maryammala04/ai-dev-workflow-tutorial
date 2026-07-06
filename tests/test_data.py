@@ -1,7 +1,12 @@
 import pandas as pd
 import pytest
 
-from data import load_sales_data
+from data import (
+    compute_category_breakdown,
+    compute_total_orders,
+    compute_total_sales,
+    load_sales_data,
+)
 
 VALID_CSV = """date,order_id,product,category,region,quantity,unit_price,total_amount
 2024-01-03,ORD-001,Wireless Earbuds,Audio,North,2,79.99,159.98
@@ -124,3 +129,13 @@ def test_compute_region_breakdown():
 
     assert list(result["region"]) == ["South", "North", "East"]
     assert list(result["total_sales"]) == [300.0, 120.0, 60.0]
+
+
+def test_real_dataset_matches_prd_expected_output():
+    df = load_sales_data("data/sales-data.csv")
+
+    assert compute_total_orders(df) == 482
+    assert round(compute_total_sales(df), -2) == 116500  # PRD: ~$116,500
+
+    top_category = compute_category_breakdown(df).iloc[0]["category"]
+    assert top_category == "Electronics"
