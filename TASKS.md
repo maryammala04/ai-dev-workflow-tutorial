@@ -11,8 +11,6 @@ Each milestone moves through To Do -> In Progress -> Done.
 
 ## To Do
 
-- [ ] **TASK-2: KPI scorecards**
-  - [ ] Total Sales and Total Orders shown as formatted metrics
 - [ ] **TASK-3: Sales trend chart**
   - [ ] Line chart of sales over time renders from the data
 - [ ] **TASK-4: Category and region breakdowns**
@@ -27,3 +25,5 @@ Each milestone moves through To Do -> In Progress -> Done.
 - [x] **TASK-1: Project setup and data loading**
   - [x] App runs with `streamlit run app.py` and shows a title
   - [x] Loads `data/sales-data.csv`; handles a missing file cleanly
+- [x] **TASK-2: KPI scorecards**
+  - [x] Total Sales and Total Orders shown as formatted metrics

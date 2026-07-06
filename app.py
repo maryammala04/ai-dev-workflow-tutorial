@@ -1,6 +1,10 @@
 import streamlit as st
 
-from data import load_sales_data
+from data import (
+    compute_total_orders,
+    compute_total_sales,
+    load_sales_data,
+)
 
 DATA_PATH = "data/sales-data.csv"
 
@@ -19,4 +23,9 @@ except (FileNotFoundError, ValueError) as e:
     st.error(str(e))
     st.stop()
 
-st.write(f"Loaded {len(df):,} transactions.")
+total_sales = compute_total_sales(df)
+total_orders = compute_total_orders(df)
+
+col1, col2 = st.columns(2)
+col1.metric("Total Sales", f"${total_sales:,.0f}")
+col2.metric("Total Orders", f"{total_orders:,}")

@@ -22,3 +22,11 @@ def load_sales_data(path):
         raise ValueError(f"CSV is missing required columns: {', '.join(missing)}")
 
     return df
+
+
+def compute_total_sales(df):
+    return df["total_amount"].sum()
+
+
+def compute_total_orders(df):
+    return len(df)

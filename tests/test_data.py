@@ -66,3 +66,19 @@ def test_load_sales_data_missing_date_column(tmp_path):
 def test_load_sales_data_non_csv_read_error(tmp_path):
     with pytest.raises(ValueError, match="Could not parse CSV"):
         load_sales_data(str(tmp_path))
+
+
+def _kpi_fixture():
+    return pd.DataFrame({
+        "total_amount": [100.0, 250.5, 49.5],
+    })
+
+
+def test_compute_total_sales():
+    from data import compute_total_sales
+    assert compute_total_sales(_kpi_fixture()) == 400.0
+
+
+def test_compute_total_orders():
+    from data import compute_total_orders
+    assert compute_total_orders(_kpi_fixture()) == 3
