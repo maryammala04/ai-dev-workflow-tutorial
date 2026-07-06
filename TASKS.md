@@ -1,0 +1,30 @@
+# Sales Dashboard: Tasks
+
+This file tracks all work for the e-commerce sales dashboard.
+Each milestone moves through To Do -> In Progress -> Done.
+
+## Definition of Done (applies to every milestone)
+
+- [ ] Acceptance criteria met
+- [ ] App runs locally with `streamlit run app.py`
+- [ ] Changes committed with the milestone ID in the message
+
+## To Do
+
+## In Progress
+
+- [ ] **TASK-5: Test and deploy**
+  - [ ] Dashboard runs without errors and is deployed to a public URL
+  - (Local testing/refinement complete: full test suite passing, manual acceptance-criteria walkthrough done, missing-file error path verified, dependencies pinned. Remaining: deploy to Streamlit Community Cloud.)
+
+## Done
+
+- [x] **TASK-1: Project setup and data loading**
+  - [x] App runs with `streamlit run app.py` and shows a title
+  - [x] Loads `data/sales-data.csv`; handles a missing file cleanly
+- [x] **TASK-2: KPI scorecards**
+  - [x] Total Sales and Total Orders shown as formatted metrics
+- [x] **TASK-3: Sales trend chart**
+  - [x] Line chart of sales over time renders from the data
+- [x] **TASK-4: Category and region breakdowns**
+  - [x] Bar charts for sales by category and by region, sorted by value
