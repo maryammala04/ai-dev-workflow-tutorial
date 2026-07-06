@@ -48,7 +48,7 @@ def test_load_sales_data_corrupt_content(tmp_path):
         '"unterminated quote,ORD-001,Wireless Earbuds,Audio,North,2,79.99,159.98\n'
     )
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Could not parse CSV"):
         load_sales_data(str(csv_path))
 
 
@@ -59,5 +59,10 @@ def test_load_sales_data_missing_date_column(tmp_path):
         "ORD-001,Wireless Earbuds,Audio,North,2,79.99,159.98\n"
     )
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Could not parse CSV"):
         load_sales_data(str(csv_path))
+
+
+def test_load_sales_data_non_csv_read_error(tmp_path):
+    with pytest.raises(ValueError, match="Could not parse CSV"):
+        load_sales_data(str(tmp_path))
