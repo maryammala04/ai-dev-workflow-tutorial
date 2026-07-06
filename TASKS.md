@@ -11,10 +11,11 @@ Each milestone moves through To Do -> In Progress -> Done.
 
 ## To Do
 
+## In Progress
+
 - [ ] **TASK-5: Test and deploy**
   - [ ] Dashboard runs without errors and is deployed to a public URL
-
-## In Progress
+  - (Local testing/refinement complete: full test suite passing, manual acceptance-criteria walkthrough done, missing-file error path verified, dependencies pinned. Remaining: deploy to Streamlit Community Cloud.)
 
 ## Done
 
