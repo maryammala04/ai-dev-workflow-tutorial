@@ -11,8 +11,6 @@ Each milestone moves through To Do -> In Progress -> Done.
 
 ## To Do
 
-- [ ] **TASK-4: Category and region breakdowns**
-  - [ ] Bar charts for sales by category and by region, sorted by value
 - [ ] **TASK-5: Test and deploy**
   - [ ] Dashboard runs without errors and is deployed to a public URL
 
@@ -27,3 +25,5 @@ Each milestone moves through To Do -> In Progress -> Done.
   - [x] Total Sales and Total Orders shown as formatted metrics
 - [x] **TASK-3: Sales trend chart**
   - [x] Line chart of sales over time renders from the data
+- [x] **TASK-4: Category and region breakdowns**
+  - [x] Bar charts for sales by category and by region, sorted by value

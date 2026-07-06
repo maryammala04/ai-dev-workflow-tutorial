@@ -2,7 +2,9 @@ import streamlit as st
 import plotly.express as px
 
 from data import (
+    compute_category_breakdown,
     compute_monthly_trend,
+    compute_region_breakdown,
     compute_total_orders,
     compute_total_sales,
     load_sales_data,
@@ -47,3 +49,26 @@ trend_fig.update_layout(
     hovermode="x unified",
 )
 st.plotly_chart(trend_fig, use_container_width=True)
+
+category_breakdown = compute_category_breakdown(df)
+region_breakdown = compute_region_breakdown(df)
+
+col3, col4 = st.columns(2)
+
+with col3:
+    st.subheader("Sales by Category")
+    category_fig = px.bar(
+        category_breakdown, x="category", y="total_sales",
+        color_discrete_sequence=[COLOR_NEUTRAL],
+    )
+    category_fig.update_layout(xaxis_title="", yaxis_title="Sales ($)")
+    st.plotly_chart(category_fig, use_container_width=True)
+
+with col4:
+    st.subheader("Sales by Region")
+    region_fig = px.bar(
+        region_breakdown, x="region", y="total_sales",
+        color_discrete_sequence=[COLOR_NEUTRAL],
+    )
+    region_fig.update_layout(xaxis_title="", yaxis_title="Sales ($)")
+    st.plotly_chart(region_fig, use_container_width=True)

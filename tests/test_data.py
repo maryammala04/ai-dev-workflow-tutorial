@@ -96,3 +96,31 @@ def test_compute_monthly_trend():
 
     assert list(result["total_sales"]) == [150.0, 75.0]
     assert result["month"].is_monotonic_increasing
+
+
+def test_compute_category_breakdown():
+    from data import compute_category_breakdown
+
+    df = pd.DataFrame({
+        "category": ["Electronics", "Electronics", "Accessories", "Audio"],
+        "total_amount": [100.0, 50.0, 200.0, 30.0],
+    })
+
+    result = compute_category_breakdown(df)
+
+    assert list(result["category"]) == ["Accessories", "Electronics", "Audio"]
+    assert list(result["total_sales"]) == [200.0, 150.0, 30.0]
+
+
+def test_compute_region_breakdown():
+    from data import compute_region_breakdown
+
+    df = pd.DataFrame({
+        "region": ["North", "South", "East"],
+        "total_amount": [120.0, 300.0, 60.0],
+    })
+
+    result = compute_region_breakdown(df)
+
+    assert list(result["region"]) == ["South", "North", "East"]
+    assert list(result["total_sales"]) == [300.0, 120.0, 60.0]

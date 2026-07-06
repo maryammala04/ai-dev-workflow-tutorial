@@ -40,3 +40,25 @@ def compute_monthly_trend(df):
         .reset_index()
         .rename(columns={"date": "month", "total_amount": "total_sales"})
     )
+
+
+def compute_category_breakdown(df):
+    return (
+        df.groupby("category")["total_amount"]
+        .sum()
+        .reset_index()
+        .rename(columns={"total_amount": "total_sales"})
+        .sort_values("total_sales", ascending=False)
+        .reset_index(drop=True)
+    )
+
+
+def compute_region_breakdown(df):
+    return (
+        df.groupby("region")["total_amount"]
+        .sum()
+        .reset_index()
+        .rename(columns={"total_amount": "total_sales"})
+        .sort_values("total_sales", ascending=False)
+        .reset_index(drop=True)
+    )
