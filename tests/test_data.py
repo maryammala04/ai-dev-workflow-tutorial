@@ -39,3 +39,25 @@ def test_load_sales_data_success(tmp_path):
         "region", "quantity", "unit_price", "total_amount",
     ]
     assert pd.api.types.is_datetime64_any_dtype(df["date"])
+
+
+def test_load_sales_data_corrupt_content(tmp_path):
+    csv_path = tmp_path / "corrupt.csv"
+    csv_path.write_text(
+        'date,order_id,product,category,region,quantity,unit_price,total_amount\n'
+        '"unterminated quote,ORD-001,Wireless Earbuds,Audio,North,2,79.99,159.98\n'
+    )
+
+    with pytest.raises(ValueError):
+        load_sales_data(str(csv_path))
+
+
+def test_load_sales_data_missing_date_column(tmp_path):
+    csv_path = tmp_path / "no_date.csv"
+    csv_path.write_text(
+        "order_id,product,category,region,quantity,unit_price,total_amount\n"
+        "ORD-001,Wireless Earbuds,Audio,North,2,79.99,159.98\n"
+    )
+
+    with pytest.raises(ValueError):
+        load_sales_data(str(csv_path))

@@ -10,7 +10,12 @@ def load_sales_data(path):
     try:
         df = pd.read_csv(path, parse_dates=["date"])
     except FileNotFoundError:
-        raise FileNotFoundError(f"Data file not found at {path}")
+        raise FileNotFoundError(f"Data file not found at {path}") from None
+    except Exception as e:
+        # Any other read/parse failure (corrupt file, bad encoding, a CSV
+        # missing the "date" column itself) should surface as the same
+        # friendly error app.py already catches, not a raw traceback.
+        raise ValueError(f"Could not parse CSV at {path}: {e}") from e
 
     missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
     if missing:
