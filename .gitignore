@@ -229,3 +229,6 @@ node_modules/
 # Local-only dev docs, except superpowers specs/plans which the workflow commits to the branch
 docs/*
 !docs/superpowers/
+
+# Subagent-driven-development scratch (progress ledger, task briefs/reports)
+.superpowers/
