@@ -13,10 +13,6 @@ Each milestone moves through To Do -> In Progress -> Done.
 
 ## In Progress
 
-- [ ] **TASK-5: Test and deploy**
-  - [ ] Dashboard runs without errors and is deployed to a public URL
-  - (Local testing/refinement complete: full test suite passing, manual acceptance-criteria walkthrough done, missing-file error path verified, dependencies pinned. Remaining: deploy to Streamlit Community Cloud.)
-
 ## Done
 
 - [x] **TASK-1: Project setup and data loading**
@@ -28,3 +24,6 @@ Each milestone moves through To Do -> In Progress -> Done.
   - [x] Line chart of sales over time renders from the data
 - [x] **TASK-4: Category and region breakdowns**
   - [x] Bar charts for sales by category and by region, sorted by value
+- [x] **TASK-5: Test and deploy**
+  - [x] Dashboard runs without errors and is deployed to a public URL
+  - Live: https://ai-dev-workflow-tutorial-ggtxcytqgrrybwg4ge5cd3.streamlit.app/

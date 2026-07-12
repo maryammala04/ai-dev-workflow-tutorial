@@ -105,6 +105,7 @@ Open [pre-work-setup.md](pre-work-setup.md) and work through it first, then cont
 |----------|-------------|
 | [E-Commerce PRD](prd/ecommerce-analytics.md) | The product requirements document you'll build from |
 | [Sales data](data/sales-data.csv) | Sample dataset for the dashboard |
+| [Live dashboard](https://ai-dev-workflow-tutorial-ggtxcytqgrrybwg4ge5cd3.streamlit.app/) | The deployed sales dashboard, built through this tutorial's workflow |
 
 ## License
 
